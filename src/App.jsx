@@ -1,13 +1,26 @@
-import { useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <h1>Van Life</h1>
-      <p>Gabriel</p>
-    </div>
+    <BrowserRouter>
+      <header>
+        <Link className="site-logo" to="/">
+          #VanLife
+        </Link>
+        <nav>
+          <Link to="/about">About</Link>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
